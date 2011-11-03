@@ -1,0 +1,52 @@
+<div class="block">
+  <% if current_user.role == 'admin' %>
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "List", adaptive_tests_path  %></li>
+      <li><%= link_to "New", new_adaptive_test_path %></li>
+    </ul>
+  </div>    
+  <% end %>
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> AdaptiveTests</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">ID</th>
+                    <th>
+            <%= t("activerecord.attributes.adaptive_test.title", :default => t("activerecord.labels.title", :default => "Title")) %>
+          </th>
+                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @adaptive_tests.each do |adaptive_test| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+            <%= adaptive_test.id %>
+          </td>
+                    <td>
+            <%= link_to adaptive_test.title, adaptive_test_path(adaptive_test) %>
+          </td>
+                    <td>
+            <%= adaptive_test.created_at %>
+          </td>
+          <td class="last">
+            <%= link_to "Run test", "/adaptive_tests/#{adaptive_test.id}/run" %> |
+            <% if can? :edit, AdaptiveTest %>
+              <%= link_to "Edit", edit_adaptive_test_path(adaptive_test) %> |
+              <%= link_to "Delete", adaptive_test_path(adaptive_test), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+            <% end %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test application</title>
+  <%= stylesheet_link_tag 'web_app_theme' %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  
+  <div id="container">
+    <div id="header">
+      <h1><a href="/">Test application</a></h1>
+      <div id="user-navigation">
+        <ul class="wat-cf">
+          
+          <li><%= link_to "Home", home_path %></li>
+          
+          <li><%= link_to "About", about_path %></li>
+          <li><%= link_to "Help", help_path %></li>
+          <% if signed_in? %>
+            <li><%= link_to "Logout", 'users/logout' %></li>
+            <li><%= link_to 'Tests', adaptive_tests_path %></li>
+            <li><%= link_to 'Profile', current_user %></li>
+          <% else %>
+            <li><%= link_to "Sign in", new_user_session_path %></li>
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <% end %>  
+            
+        </ul>
+      </div>
+      
+    </div>    
+    <div id="wrapper" class="wat-cf">
+      <div class="flash">
+        <% flash.each do |type, message| -%>
+          <div class="message <%= type %>">
+            <p><%= message %></p>
+          </div>
+        <% end -%>
+      </div>
+      <div id="main">
+        <%= yield %>
+        <div id="footer">
+          <div class="block">
+            <p>Copyright &copy; <%= Time.now.year %> Test application.</p>
+          </div>      
+        </div>
+      </div>
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+    </div>    
+  </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<% answers = @question.answers %>
+<h1> <%= @question.title %> </h1>
+
+<form action=<%= next_question_path %> method="post" >
+
+  <%= radio_button(:POST, :answer, "variant1") %> <%=  answers[0].title %> <br/>
+  <%= radio_button(:POST, :answer, "variant2") %> <%=  answers[1].title %> <br/>
+  <%= radio_button(:POST, :answer, "variant3") %> <%=  answers[2].title %> <br/>
+  <%= radio_button(:POST, :answer, "variant4") %> <%=  answers[3].title %> <br/>
+  <input type="submit" value="Give answer">
+
+</form>

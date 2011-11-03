@@ -1,0 +1,2 @@
+module AdaptiveTestsHelper
+end
