@@ -1,0 +1,11 @@
+.answers {
+  color: #555;
+  font-size: 16px;
+}
+
+.link_button {
+  color: #A00;
+  font-size: 20px;
+  background-color: #AAA;
+  
+}

@@ -1,0 +1,15 @@
+require 'spec_helper'
+
+describe AdaptiveTestsController do
+  
+  describe "Testing" do
+   
+    it "run_test_link should run test" do
+      visit run_test_path(1)
+      response.should render_template('quesdtions/ask_question')
+    end
+    
+  end
+
+ 
+end
