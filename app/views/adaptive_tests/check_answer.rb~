@@ -1,0 +1,2 @@
+<%= @name %>
+redirect_to adaptive_tests_path

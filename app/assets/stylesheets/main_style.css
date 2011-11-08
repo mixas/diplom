@@ -4,8 +4,17 @@
 }
 
 .link_button {
-  color: #A00;
-  font-size: 20px;
-  background-color: #AAA;
-  
+  font-size: 20px;  
 }
+/*
+#crud_link {
+}
+
+#crud_list {
+  display: none;
+}
+
+#crud_link:hover #crud_list:hover {
+  display: block;
+}
+*/

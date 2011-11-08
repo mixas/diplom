@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111104075030) do
+ActiveRecord::Schema.define(:version => 20111108084228) do
 
   create_table "adaptive_tests", :force => true do |t|
     t.string   "title"
@@ -24,6 +24,19 @@ ActiveRecord::Schema.define(:version => 20111104075030) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "right"
+  end
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "learning_plans", :force => true do |t|
+    t.integer  "adaptive_test_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "questions", :force => true do |t|

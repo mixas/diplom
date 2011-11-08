@@ -1,24 +1,35 @@
 <h1 align="center">Test <%= @adaptive_test.id %></h1>
 
-<form action="" method="post">
   <% paginate_questions = @test_questions.paginate(:per_page => 1, :page => params[:page]) %>
   <% @pages_count = paginate_questions.count %>
   <% @next_page = params[:page].to_i+1 %>
   <% @current_page = params[:page].to_i %>
-  <% paginate_questions.each do |question|%>
-    <h1><%= question.title %></h1>
-    
-    <% question.answers.each do |answer| %>
-      <input type="radio" name="answer"><span class="answers"><%= answer.title %></span><br/>
-    <% end %>
-    
-    
-    <% if @next_page < @pages_count -%>
-      <%= link_to "Next", "#{adaptive_tests_path}/#{@adaptive_test.id}/run?page=#{@next_page}", :class => "link_button" %>
-    <% end -%>
-        
+  
+<form action="check_answer" method="get">
+
+<!-- paginate -->
+  <% paginate_questions.each do | question |%>
+      <h1><%= question.title %></h1>
+      <h1><%= question.id %></h1>
+       
+      <input type="hidden" name="question" value="<%= question.id %>">
+      <% session[:question_page] = @next_page %>
+
+      <% question.answers.each do | answer | %>
+        <input type="radio" name="answer" id="answer<%= answer.id %>" value="<%= answer.id %>" checked="checked"><span class="answers"><%= answer.title %></span><br/>
+      <% end %>
+
   <% end %>
-  
-  <!--  <%= will_paginate paginate_questions %> -->
-  
+<!-- ******* -->
+
+<!-- submit answer or show result -->
+  <% if @next_page < @pages_count %>
+    <input type="submit" value="Next">
+    <input type="hidden" name="first_last" value="first">
+  <% else %>
+    <input type="submit" value="Result">
+    <input type="hidden" name="first_last" value="last">
+  <% end %>
+<!-- ******* -->
+
 </form>

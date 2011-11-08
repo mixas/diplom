@@ -37,5 +37,3 @@ gem 'jquery-rails'
 	  gem 'test-unit', '2.1.1'
     gem 'rspec-rails'
 	end
-
-

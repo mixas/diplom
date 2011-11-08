@@ -1,0 +1,26 @@
+      <% if @next_page < @pages_count %>
+        <%= link_to "Next question", "#{adaptive_tests_path}/#{@adaptive_test.id}/run?page=#{@next_page}", :class => "link_button", :onclick => "define_cheked_radio()" %>
+      <% end %>
+      
+      
+      
+      
+      
+      <% if @next_page == @pages_count %>
+        <%= link_to "Answer and show result", results_path(@adaptive_test), :class => "link_button" %>
+      <% end -%>
+      
+      
+      
+      
+      <script type="text/javascript">
+function define_cheked_radio(){ 
+  var radiobuttons = document.getElementsByName("answer");
+  var buttons_count = radiobuttons.length
+  for (var i=0; i<buttons_count; i++){
+    if (radiobuttons[i].checked){
+      alert(radiobuttons[i].value)
+    }
+  }
+}
+</script>

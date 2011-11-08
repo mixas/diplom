@@ -18,10 +18,21 @@
           <li><%= link_to "About", about_path %></li>
           <li><%= link_to "Help", help_path %></li>
           <% if signed_in? %>
-          
             <li><%= link_to "Logout", 'users/logout' %></li>
             <li><%= link_to 'Tests', adaptive_tests_path %></li>
             <li><%= link_to 'Profile', current_user %></li>
+            <% if current_user.role == 'admin' -%>
+              
+              <!--<li><a href="#" id="crud_link">CRUD</a>
+                <ul id="crud_list">-->
+                  <li><%= link_to 'Users', users_path %></li>
+                  <li><%= link_to 'Answers', answers_path %></li>
+                  <li><%= link_to 'Questions', questions_path %></li>
+                  <li><%= link_to 'Groups', groups_path %></li>
+                <!--</ul>
+              </li>-->
+              
+            <% end -%>
           <% else %>
             <li><%= link_to "Sign in", new_user_session_path %></li>
             <li><%= link_to "Sign up", new_user_registration_path %></li>
@@ -29,7 +40,7 @@
                      
         </ul>
       </div>
-      
+
     </div>    
     <div id="wrapper" class="wat-cf">
       <div class="flash">
@@ -49,6 +60,7 @@
       </div>
       <div id="sidebar">
         <%= yield :sidebar %>
+        <%= debug(params) if Rails.env.development? %>
       </div>
     </div>    
   </div>

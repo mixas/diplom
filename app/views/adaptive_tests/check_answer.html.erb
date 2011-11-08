@@ -1,0 +1,4 @@
+<%= link_to "Check answer", "#{run_test_path}?page=#{session[:question_page]}" %>
+<h1><%= session[:right_answers] %></h1>
+<h1><%= @answer_object.right if @answer_object.respond_to?('right') %></h1>
+<h1><%= @answer %></h1>

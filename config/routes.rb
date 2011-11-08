@@ -8,14 +8,14 @@ Diplom::Application.routes.draw do
   match '/help' => 'pages#help'
   match '/users/logout' => 'users#logout'
   match '/adaptive_tests/:id/run' => 'adaptive_tests#run', :as => "run_test"
+  match '/adaptive_tests/:id/results' => 'adaptive_tests#results', :as => "results"
+  match '/adaptive_tests/:id/check_answer' => "adaptive_tests#check_answer", :as => "check_answer"
   
-  resources :answers
-    
   resources :adaptive_tests do
-    resources :questions
+    resources :questions, :only => [:index]
   end
   
-  resources :users
+  resources :users, :answers, :questions, :groups
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

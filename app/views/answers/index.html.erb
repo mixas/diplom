@@ -11,30 +11,25 @@
       <table class="table">
         <tr>             
           <th class="first">ID</th>
-                    <th>
-            <%= t("activerecord.attributes.answer.title", :default => t("activerecord.labels.title", :default => "Title")) %>
-          </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+          <th>Title</th>
+          <th>Quesion number</th>
+          <th>Right</th>
+          <th>Created at</th>
           <th class="last">&nbsp;</th>
         </tr>
-        
         
         <% @paginate_answers = @answers.paginate(:per_page => 10, :page => params[:page]) %>
         <% @paginate_answers.each do |answer| -%>
         <tr class="<%= cycle("odd", "even") %>">
-          <td>
-            <%= answer.id %>
-          </td>
-                    <td>
-            <%= link_to answer.title, answer_path(answer) %>
-          </td>
-                    <td>
-            <%= answer.created_at %>
-          </td>
+          <td><%= answer.id %></td>
+          <td><%= link_to answer.title, answer_path(answer) %></td>
+          <td><%= answer.question_id %>
+          <td><%= answer.right %></td>
+          <td><%= answer.created_at %></td>
           <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", answer_path(answer) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_answer_path(answer) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", answer_path(answer), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+            <%= link_to "Show", answer_path(answer) %> |
+            <%= link_to "Edit", edit_answer_path(answer) %> |
+            <%= link_to "Delete", answer_path(answer), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
           </td>
         </tr>          
         <% end -%>
@@ -44,7 +39,7 @@
       <div class="actions-bar wat-cf">
         <div class="actions">
         </div>
-        <%= will_paginate @paginate_answers %>       
+        <%= will_paginate @paginate_answers %>
       </div>
     </div>
   </div>

@@ -33,7 +33,7 @@
             <%= test.created_at %>
           </td>
           <td class="last">
-            <%= link_to "Run test", "/adaptive_tests/#{test.id}/run" %> |
+            <%= link_to "Run test", "/adaptive_tests/#{test.id}/run?page=1" %> |
             <% if can? :edit, AdaptiveTest %>
               <%= link_to "Edit", edit_adaptive_test_path(test) %> |
               <%= link_to "Delete", adaptive_test_path(test), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
