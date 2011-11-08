@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111108084228) do
+ActiveRecord::Schema.define(:version => 20111108102358) do
 
   create_table "adaptive_tests", :force => true do |t|
     t.string   "title"
@@ -61,6 +61,9 @@ ActiveRecord::Schema.define(:version => 20111108084228) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
+    t.string   "login"
+    t.string   "name"
+    t.string   "surname_to_users"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

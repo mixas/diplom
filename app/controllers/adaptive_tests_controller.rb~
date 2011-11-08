@@ -7,6 +7,7 @@ class AdaptiveTestsController < InheritedResources::Base
     @test_questions = @adaptive_test.questions.scoped
     session[:begin_time] ||= Time.now
     session[:right_answers] ||= 0
+    redirect_to new_user_path
   end
   
   def index
