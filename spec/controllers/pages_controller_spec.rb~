@@ -1,0 +1,28 @@
+require 'spec_helper'
+
+describe PagesController do
+  
+  
+  describe "GET to pages" do
+    it "should be successful 'home'" do
+      get 'home'
+      response.should be_success
+    end
+
+    it "should be successful 'about'" do
+      get 'about'
+      response.should be_success
+    end
+  
+    it "should be successful 'help'" do
+      get 'help'
+      response.should be_success
+    end
+    
+    it "should be successful 'users'" do
+      get 'users'
+      response.should be_success
+    end
+    
+  end
+end

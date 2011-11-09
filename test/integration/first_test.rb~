@@ -1,0 +1,8 @@
+require 'integration_test_helper'
+
+class UserTest < ActionController::IntegrationTest
+
+  test "viewing clubs" do
+    visit '/users'
+    page.has_content?('All users')
+  end

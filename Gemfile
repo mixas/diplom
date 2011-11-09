@@ -36,4 +36,7 @@ gem 'jquery-rails'
 	  gem 'redgreen', '1.2.2'
 	  gem 'test-unit', '2.1.1'
     gem 'rspec-rails'
+    gem "capybara"
+    gem "launchy"
+    gem 'spork'
 	end
