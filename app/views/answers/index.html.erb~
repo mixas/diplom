@@ -6,7 +6,7 @@
     </ul>
   </div>          
   <div class="content">          
-    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Answers</h2>
+    <h2 class="title"> Answers</h2>
     <div class="inner">
       <table class="table">
         <tr>             
@@ -18,7 +18,7 @@
           <th class="last">&nbsp;</th>
         </tr>
         
-        <% @paginate_answers = @answers.paginate(:per_page => 20, :page => params[:page]) %>
+        <% @paginate_answers = @answers.paginate(:per_page => 10, :page => params[:page]) %>
         <% @paginate_answers.each do |answer| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td><%= answer.id %></td>
@@ -33,7 +33,6 @@
           </td>
         </tr>          
         <% end -%>
-        
         
       </table>
       <div class="actions-bar wat-cf">

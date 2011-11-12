@@ -1,0 +1,3 @@
+class ClassicTest < AllTest
+
+end

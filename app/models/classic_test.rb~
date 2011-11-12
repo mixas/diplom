@@ -1,0 +1,14 @@
+class ClassicTest < AllTest
+
+def self.results
+  end_time = Time.now
+  begin_time = session[:begin_time]
+  if not begin_time.nil?
+    @result_time = end_time - begin_time
+  end
+  @right_answers = session[:right_answers]
+  session[:begin_time] = nil
+  session[:right_answers] = nil
+end
+
+end

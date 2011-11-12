@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  learning_plan_id: 1
+  passing_time: 2011-11-09 23:02:04
+
+two:
+  learning_plan_id: 1
+  passing_time: 2011-11-09 23:02:04

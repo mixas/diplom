@@ -1,4 +1,4 @@
-class Question < ActiveRecord::Base
+class CloseQuestion < Question
   belongs_to :all_test
   has_many :answers    
 end

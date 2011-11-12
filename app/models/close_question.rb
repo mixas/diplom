@@ -1,0 +1,2 @@
+class CloseQuestion < Question  
+end

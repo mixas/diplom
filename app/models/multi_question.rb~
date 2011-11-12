@@ -1,4 +1,4 @@
-class Question < ActiveRecord::Base
+class MultiQuestion < ActiveRecord::Base
   belongs_to :all_test
   has_many :answers    
 end

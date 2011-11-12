@@ -12,7 +12,7 @@ class Ability
     if user.role == 'admin'
       can :manage, :all
     else
-      can [:read, :run, :results, :check_answer], AdaptiveTest
+      can [:read, :run, :results, :check_answer], AllTest
       can [:show, :edit, :delete, :update, :logout], User
     end
   end

@@ -1,4 +1,3 @@
-class AdaptiveTest < ActiveRecord::Base
-  has_many :questions
-  
+class AdaptiveTest < AllTest
+
 end

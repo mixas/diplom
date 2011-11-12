@@ -1,5 +1,5 @@
       <% if @next_page < @pages_count %>
-        <%= link_to "Next question", "#{adaptive_tests_path}/#{@adaptive_test.id}/run?page=#{@next_page}", :class => "link_button", :onclick => "define_cheked_radio()" %>
+        <%= link_to "Next question", "#{all_tests_path}/#{@all_test.id}/run?page=#{@next_page}", :class => "link_button", :onclick => "define_cheked_radio()" %>
       <% end %>
       
       
@@ -7,7 +7,7 @@
       
       
       <% if @next_page == @pages_count %>
-        <%= link_to "Answer and show result", results_path(@adaptive_test), :class => "link_button" %>
+        <%= link_to "Answer and show result", results_path(@all_test), :class => "link_button" %>
       <% end -%>
       
       

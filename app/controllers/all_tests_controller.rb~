@@ -1,16 +1,16 @@
-class AdaptiveTestsController < InheritedResources::Base
+class AllTestsController < InheritedResources::Base
   before_filter :authenticate_user!
   load_and_authorize_resource
   
   def run
-    @adaptive_test = AdaptiveTest.find(params[:id])
-    @test_questions = @adaptive_test.questions.scoped
+    @all_test = AllTest.find(params[:id])
+    @test_questions = @all_test.questions.scoped
     session[:begin_time] ||= Time.now
     session[:right_answers] ||= 0
   end
   
   def index
-    @adaptive_tests = AdaptiveTest.scoped(:order => :id)
+    @all_tests = AllTest.scoped(:order => :id)
   end
   
   def results
@@ -25,7 +25,7 @@ class AdaptiveTestsController < InheritedResources::Base
   end
   
   def check_answer
-    adaptive_test = AdaptiveTest.find(params[:id])
+    all_test = AllTest.find(params[:id])
     question = Question.find(params[:question])
     @answers = question.answers
     @answer_object = @answers.find(params[:answer])
@@ -37,7 +37,7 @@ class AdaptiveTestsController < InheritedResources::Base
       redirect_to "#{run_test_path}?page=#{session[:question_page]}"
       end
       if params[:first_last] == "last"
-      redirect_to results_path(adaptive_test)
+        redirect_to results_path(all_test)
     end
   end
     

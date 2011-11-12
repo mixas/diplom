@@ -1,4 +1,4 @@
-<h1 align="center">Test <%= @adaptive_test.id %></h1>
+<h1 align="center">Test <%= @all_test.id %></h1>
 
   <% paginate_questions = @test_questions.paginate(:per_page => 1, :page => params[:page]) %>
   <% @pages_count = paginate_questions.count %>

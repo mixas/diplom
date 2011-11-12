@@ -10,12 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111108102358) do
+ActiveRecord::Schema.define(:version => 20111111143357) do
 
-  create_table "adaptive_tests", :force => true do |t|
+  create_table "all_tests", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
+    t.string   "description"
   end
 
   create_table "answers", :force => true do |t|
@@ -33,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20111108102358) do
   end
 
   create_table "learning_plans", :force => true do |t|
-    t.integer  "adaptive_test_id"
+    t.integer  "all_test_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -42,7 +44,15 @@ ActiveRecord::Schema.define(:version => 20111108102358) do
   create_table "questions", :force => true do |t|
     t.string   "title"
     t.float    "complexity"
-    t.integer  "adaptive_test_id"
+    t.integer  "all_test_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "type"
+  end
+
+  create_table "results", :force => true do |t|
+    t.integer  "learning_plan_id"
+    t.time     "passing_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,6 +74,8 @@ ActiveRecord::Schema.define(:version => 20111108102358) do
     t.string   "login"
     t.string   "name"
     t.string   "surname_to_users"
+    t.string   "surname"
+    t.integer  "group_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

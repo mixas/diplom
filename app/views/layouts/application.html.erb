@@ -18,8 +18,8 @@
           <li><%= link_to "About", about_path %></li>
           <li><%= link_to "Help", help_path %></li>
           <% if signed_in? %>
-            <li><%= link_to "Logout", 'users/logout' %></li>
-            <li><%= link_to 'Tests', adaptive_tests_path %></li>
+            <li><%= link_to "Logout", users_logout_path %></li>
+            <li><%= link_to 'Tests', all_tests_path %></li>
             <li><%= link_to 'Profile', current_user %></li>
             <% if current_user.role == 'admin' -%>
               

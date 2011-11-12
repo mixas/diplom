@@ -1,4 +1,0 @@
-  <h1 align="center">Results</h1>
-<h2>time: <%= @result_time %></h2>
-<h2>right answers: <%= @right_answers if @answer_object.respond_to?('right')%> </h2>
-<%= link_to "Go to adaptive_tests", adaptive_tests_path, :class => "link_button"  %>

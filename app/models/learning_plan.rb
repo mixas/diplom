@@ -1,4 +1,5 @@
 class LearningPlan < ActiveRecord::Base
-  has_many :users
-  has_many :adaptive_tests
+  belongs_to :user
+  belongs_to :all_test
+  belongs_to :result
 end

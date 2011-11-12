@@ -6,6 +6,16 @@
 .link_button {
   font-size: 20px;  
 }
+
+.run_button {
+  font-size: 16px;
+  background-color: #AAAAFF; 
+  padding: 3px;
+}
+.run_button:hover {
+  background-color: #7777FF;
+  color: #FFF;
+}
 /*
 #crud_link {
 }

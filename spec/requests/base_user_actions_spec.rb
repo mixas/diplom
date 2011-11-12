@@ -14,7 +14,7 @@ describe 'Users base actions:' do
   end
   
   it "should redirect to registration page" do
-    visit '/adaptive_tests'
+    visit '/all_tests'
     page.should have_content('You need to sign in or sign up before continuing')
   end
   
@@ -37,8 +37,8 @@ describe 'Users base actions:' do
     end
     
     it 'should get list tests' do
-      visit '/adaptive_tests'
-      page.should have_content('AdaptiveTests')
+      visit '/all_tests'
+      page.should have_content('AllTests')
     end
     
     it 'should get profile page' do
@@ -52,7 +52,7 @@ describe 'Users base actions:' do
     end
     
     it 'should logout from the profile page' do
-      click_on 'Profile'  #!!!!!!!!!!!!!!!!!!!!!FAIL!!!!!!!!!!!!!!!!!!!!
+      click_on 'Profile'  
       click_on 'Logout'
       page.should have_content('Welcome')
     end
