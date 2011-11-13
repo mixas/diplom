@@ -10,7 +10,7 @@ class AllTestsController < InheritedResources::Base
   end
   
   def index
-    @all_tests = AllTest.scoped(:order => :id)
+    @all_tests = AllTest.paginate(:per_page => 10, :page => params[:page])
   end
   
   def results

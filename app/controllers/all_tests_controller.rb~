@@ -4,13 +4,13 @@ class AllTestsController < InheritedResources::Base
   
   def run
     @all_test = AllTest.find(params[:id])
-    @test_questions = @all_test.questions.scoped
+    @test_questions = @all_test.questions.paginate(:per_page => 1, :page => params[:page])
     session[:begin_time] ||= Time.now
     session[:right_answers] ||= 0
   end
   
   def index
-    @all_tests = AllTest.scoped(:order => :id)
+    @all_tests = AllTest.paginate(:per_page => 10, :page => params[:page])
   end
   
   def results

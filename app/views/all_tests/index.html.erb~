@@ -21,8 +21,7 @@
           <th class="last">&nbsp;</th>
         </tr>
         
-        <% paginate_tests = @all_tests.paginate(:per_page => 10, :page => params[:page]) %>
-        <% paginate_tests.each do |test|%>
+        <% @all_tests.each do |test|%>
           <tr class="<%= cycle("odd", "even") %>">
           <td>
             <%= test.id %>

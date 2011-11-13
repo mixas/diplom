@@ -36,7 +36,7 @@
           </td>
           <% if current_user.role == 'admin' -%>
             <td>
-              <%= link_to 'asdas', all_test_path(question.all_test_id) %>
+              <%= link_to "Test №#{question.all_test_id}", all_test_path(question.all_test_id) %>
             </td>
           <% end %>
           <td>

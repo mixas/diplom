@@ -1,4 +1,4 @@
-<h1 align="center">Test <%= @all_test.id %></h1>
+<h1 align="center">Test <%= @all_test.id %><%= "(#{@all_test.type})" %></h1>
 
   <% @pages_count = @test_questions.count %>
   <% @next_page = params[:page].to_i+1 %>
@@ -7,7 +7,7 @@
 <form action="check_answer" method="get">
 
 <!-- paginate -->
-  <% paginate_questions.each do | question |%>
+  <% @test_questions.each do | question |%>
       <h1><%= question.title %></h1>
       <h1><%= question.id %></h1>
        
