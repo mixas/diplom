@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.1.rc3'
+gem 'rails', '3.1.0.rc3'
 
 
 # Bundle edge Rails instead:
@@ -39,4 +39,5 @@ gem 'jquery-rails'
     gem "capybara"
     gem "launchy"
     gem 'spork'
+    gem 'factory_girl'
 	end

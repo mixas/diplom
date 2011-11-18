@@ -16,6 +16,10 @@
   background-color: #7777FF;
   color: #FFF;
 }
+
+.logout_link{
+  float: right;
+}
 /*
 #crud_link {
 }
