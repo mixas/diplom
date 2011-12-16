@@ -2,45 +2,45 @@
 <html>
 <head>
   <title>Test application</title>
-  <%= stylesheet_link_tag "web_app_theme", "main_style" %>
+  <%= stylesheet_link_tag "web_app_theme", "main_style", "main_menu" %>
   <%= csrf_meta_tag %>
+  <%= javascript_include_tag "test" %>
 </head>
 <body>
-  
+
   <div id="container">
     <div id="header">
       <h1><a href="/">Test application</a></h1>
       <div id="user-navigation">
-        <ul class="wat-cf">
-          <div id="csdf">
-          </div>
+        <ul class="wat-cf" id="navigation">
           <li><%= link_to "Home", home_path %></li>
           <li><%= link_to "About", about_path %></li>
           <li><%= link_to "Help", help_path %></li>
           <% if signed_in? %>
             <li><%= link_to 'Tests', all_tests_path %></li>
             <li><%= link_to 'Profile', current_user %></li>
+
             <% if current_user.role == 'admin' -%>
-              
-              <!--<li><a href="#" id="crud_link">CRUD</a>
-                <ul id="crud_list">-->
-                  <li><%= link_to 'Users', users_path %></li>
-                  <li><%= link_to 'Answers', answers_path %></li>
-                  <li><%= link_to 'Questions', questions_path %></li>
-                  <li><%= link_to 'Groups', groups_path %></li>
-                <!--</ul>
-              </li>-->
-              
+              <li><a href="#">CRUD</a>
+                <ul>
+                    <li><%= link_to 'Users', users_path %></li>
+                    <li><%= link_to 'Answers', answers_path %></li>
+                    <li><%= link_to 'Questions', questions_path %></li>
+                    <li><%= link_to 'Groups', groups_path %></li>
+                    <li><%= link_to 'Configurations', config_path %></li>
+                </ul>
+              </li>
             <% end -%>
+
           <% else %>
             <li><%= link_to "Sign in", new_user_session_path %></li>
             <li><%= link_to "Sign up", new_user_registration_path %></li>
           <% end %>
-                     
+
         </ul>
       </div>
 
-    </div>    
+    </div>
     <div id="wrapper" class="wat-cf">
       <div class="flash">
         <% flash.each do |type, message| -%>
@@ -54,7 +54,7 @@
         <div id="footer">
           <div class="block">
             <p>Copyright &copy; <%= Time.now.year %> Test application.</p>
-          </div>      
+          </div>
         </div>
       </div>
       <div id="sidebar">
@@ -65,7 +65,7 @@
         <%= yield :sidebar %>
         <%= debug(params) if Rails.env.development? %>
       </div>
-    </div>    
+    </div>
   </div>
 </body>
 </html>

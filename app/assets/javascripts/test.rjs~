@@ -1,0 +1,4 @@
+function helloworld(form){  
+  object = form["user[role]"];
+  alert(object.value);
+}

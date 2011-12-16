@@ -1,0 +1,43 @@
+#navigation, #navigation ul{
+  list-style:none;
+}
+#navigation{
+background-color: #222222;
+}
+#navigation li{
+  float:left;
+  position:relative;
+}
+#navigation li:hover{
+}
+#navigation a{
+  padding:5px;
+  font-size:18px;
+  display:block;
+  width:80px;
+  color:#fff;
+  border-right:1px solid #000;
+}
+#navigation a:hover{
+  background-color:#666;
+}
+#navigation ul{
+  display:none;
+  position:absolute;
+  top:28px;
+  left:-50px;
+}
+#navigation ul li{
+padding:0px;
+}
+#navigation ul a{
+width:130px;
+display:block;
+}
+#navigation li:hover ul{
+  display:block;
+  background-color: #222222;
+}
+#user-navigation ul li, .secondary-navigation ul li{
+padding:0px;
+}

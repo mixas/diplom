@@ -1,0 +1,9 @@
+<div class="block">
+  <div class="content">          
+    <h2 class="title"> All configurations </h2>
+    <form action="" method="post">
+      Password for teachers:<br/>
+      <input name="teacher_pass" type="text">
+    </form>
+  </div>
+</div>

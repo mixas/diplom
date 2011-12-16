@@ -36,7 +36,7 @@
             <%= test.created_at %>
           </td>
           <td class="last">
-            <%= link_to "Run test", "/all_tests/#{test.id}/run?page=1", :class => 'run_button' %>
+            <%= link_to "Run test", "/all_tests/#{test.id}/run?page=1", :class => 'button' %>
             <% if can? :edit, AllTest %>
               <%= link_to "Edit", edit_all_test_path(test) %> |
               
@@ -50,7 +50,7 @@
       <div class="actions-bar wat-cf">
         <div class="actions">
         </div>
-         <%= will_paginate paginate_tests %>
+         <%= will_paginate @all_tests %>
       </div>
     </div>
   </div>

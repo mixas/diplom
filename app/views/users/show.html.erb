@@ -1,4 +1,10 @@
 <div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", users_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_user_path %></li>
+    </ul>
+  </div>
   <div class="content">
     <div class="inner">
       <h1 align="center"><%= current_user.login %> profile</h1>
@@ -14,10 +20,17 @@
         <b>Name:</b>
           <%= @user.name %>
         </p>
-        
+        <p>
+        <b>Surname:</b>
+          <%= @user.surname %>
+        </p>
         <p>
           <b>Role:</b>
           <%= @user.role %>
+        </p>
+        <p>
+        <b>Group:</b>
+          <%= @user.group.name %>
         </p>
       <div class="wat-cf">
         <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "Edit"), edit_user_path(@user), :class => "button" %> 
