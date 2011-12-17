@@ -52,7 +52,7 @@ describe 'Users base actions:' do
     end
     
     it 'should logout from the profile page' do
-      click_on 'Profile'  #!!!!!!!!!!!!!!!!!!!!!FAIL!!!!!!!!!!!!!!!!!!!!
+      click_on 'Profile'  
       click_on 'Logout'
       page.should have_content('Welcome')
     end

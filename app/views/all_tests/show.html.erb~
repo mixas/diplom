@@ -2,23 +2,27 @@
   <% if current_user.role == 'admin' %>
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", adaptive_tests_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_adaptive_test_path %></li>
-      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", adaptive_test_path %></li>
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", all_tests_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_all_test_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", all_test_path %></li>
     </ul>
   </div>
   <% end %>
   <div class="content">
     <div class="inner">
-      
+
         <p>
-          <b><%= t("activerecord.attributes.adaptive_test.title", :default => t("activerecord.labels.title", :default => "Title")) %>:</b>
-          <%= @adaptive_test.title %>
+          <b>Title:</b>
+          <%= @all_test.title %>
+        </p>
+        <p>
+          <b>Type:</b>
+          <%= @all_test.type %>
         </p>
       <div class="wat-cf">
-        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_adaptive_test_path(@adaptive_test), :class => "button" %> 
-        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), adaptive_test_path(@adaptive_test), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-        </div>      
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "edit", :default=> "Edit"), edit_all_test_path(@all_test), :class => "button" %>
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "Delete"), all_test_path(@all_test), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+        </div>
     </div>
   </div>
 </div>

@@ -6,18 +6,18 @@ describe 'Users base actions:' do
     visit '/'
     page.should have_content('Welcome')
   end
-  
+
   it "should get registration page" do
     visit '/home'
     click_on 'Sign up'
     page.should have_content('Sign up')
   end
-  
+
   it "should redirect to registration page" do
     visit '/all_tests'
     page.should have_content('You need to sign in or sign up before continuing')
   end
-  
+
   it 'user should successfuly register' do
     visit '/users/sign_up'
     fill_in 'user[email]', :with => 'example123@gmail.com'
@@ -26,7 +26,7 @@ describe 'Users base actions:' do
     click_button 'Sign up'
     page.should have_content('Welcome! You have signed up successfully')
   end
-  
+
   describe 'for authentication user:' do
     before :each do
       visit '/users/sign_up'
@@ -35,28 +35,28 @@ describe 'Users base actions:' do
       fill_in 'user[password_confirmation]', :with => 'foobar'
       click_button 'Sign up'
     end
-    
+
     it 'should get list tests' do
       visit '/all_tests'
       page.should have_content('AllTests')
     end
-    
+
     it 'should get profile page' do
       click_on 'Profile'
       page.should have_content('example123@gmail.com')
     end
-    
+
     it 'should logout' do
       click_on 'Logout'
       page.should have_content('Welcome')
     end
-    
+
     it 'should logout from the profile page' do
-      click_on 'Profile'  
+      click_on 'Profile'
       click_on 'Logout'
       page.should have_content('Welcome')
     end
-    
+
     it 'should deny access if user try view foreign profile' do
       click_on 'Home'#!!
       click_on 'Logout'# !!
@@ -68,7 +68,7 @@ describe 'Users base actions:' do
       visit user_path(1)
       page.should have_content('You have not permissions')
     end
-    
+
   end
-  
+
 end

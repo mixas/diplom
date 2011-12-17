@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20111111143357) do
   end
 
   create_table "learning_plans", :force => true do |t|
-    t.integer  "all_test_id"
+    t.integer  "adaptive_test_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20111111143357) do
   create_table "questions", :force => true do |t|
     t.string   "title"
     t.float    "complexity"
-    t.integer  "all_test_id"
+    t.integer  "adaptive_test_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"

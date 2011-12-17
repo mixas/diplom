@@ -1,18 +1,18 @@
 class AllTestsController < InheritedResources::Base
   before_filter :authenticate_user!
   load_and_authorize_resource
-  
+
   def run
     @all_test = AllTest.find(params[:id])
     @test_questions = @all_test.questions.paginate(:per_page => 1, :page => params[:page])
     session[:begin_time] ||= Time.now
     session[:right_answers] ||= 0
   end
-  
+
   def index
     @all_tests = AllTest.paginate(:per_page => 10, :page => params[:page])
   end
-  
+
   def results
     end_time = Time.now
     begin_time = session[:begin_time]
@@ -23,7 +23,7 @@ class AllTestsController < InheritedResources::Base
     session[:begin_time] = nil
     session[:right_answers] = nil
   end
-  
+
   def check_answer
     all_test = AllTest.find(params[:id])
     question = Question.find(params[:question])
@@ -32,7 +32,7 @@ class AllTestsController < InheritedResources::Base
     if @answer_object.right
       session[:right_answers] += 1
     end
-    
+
     if params[:first_last] == "first"
       redirect_to "#{run_test_path}?page=#{session[:question_page]}"
       end
@@ -40,5 +40,5 @@ class AllTestsController < InheritedResources::Base
         redirect_to results_path(all_test)
     end
   end
-    
+
 end

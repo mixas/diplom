@@ -11,18 +11,18 @@ Diplom::Application.routes.draw do
   match '/all_tests/:id/results' => 'all_tests#results', :as => "results"
   match '/all_tests/:id/check_answer' => "all_tests#check_answer", :as => "check_answer"
   match '/configurations' => "configurations#index", :as => "config"
-  
-  match '/users/test' => "users#test"
-  
+
+  match '/users/test' => "users#test" #test route
+
   resources :all_tests do
     resources :questions, :only => [:index]
   end
-  
+
   resources :users
   resources :answers
   resources :questions
   resources :groups
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

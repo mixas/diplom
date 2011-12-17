@@ -1,15 +1,9 @@
 <div class="block">
-  <div class="secondary-navigation">
-    <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", users_path  %></li>
-      <li><%= link_to "New", new_user_path %></li>
-    </ul>
-  </div>          
-  <div class="content">          
+  <div class="content">
     <h2 class="title"> All Users</h2>
     <div class="inner">
       <table class="table">
-        <tr>             
+        <tr>
           <th class="first">ID</th>
           <th>
             <%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>
@@ -37,13 +31,13 @@
             <%= link_to "Edit", edit_user_path(user) %> |
             <%= link_to "Delete", user_path(user), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
           </td>
-        </tr>          
+        </tr>
         <% end -%>
       </table>
       <div class="actions-bar wat-cf">
         <div class="actions">
         </div>
-        
+
       </div>
     </div>
   </div>
