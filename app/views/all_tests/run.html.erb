@@ -3,14 +3,14 @@
   <% @pages_count = @test_questions.count %>
   <% @next_page = params[:page].to_i+1 %>
   <% @current_page = params[:page].to_i %>
-  
+
 <form action="check_answer" method="get">
 
 <!-- paginate -->
   <% @test_questions.each do | question |%>
       <h1><%= question.title %></h1>
       <h1><%= question.id %></h1>
-       
+
       <input type="hidden" name="question" value="<%= question.id %>">
       <% session[:question_page] = @next_page %>
 

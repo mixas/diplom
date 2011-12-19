@@ -1,15 +1,15 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", adaptive_tests_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_adaptive_test_path %></li>
-      <li class="active"><%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_adaptive_test_path %></li>
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", all_tests_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_all_test_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_all_test_path %></li>
     </ul>
-  </div>          
-  <div class="content">            
-    <h2 class="title"><%= t("web-app-theme.edit", :default => "Edit") %> AdaptiveTest</h2>
+  </div>
+  <div class="content">
+    <h2 class="title"><%= t("web-app-theme.edit", :default => "Edit") %> AllTest</h2>
     <div class="inner">
-      <%= form_for @adaptive_test, :url => adaptive_test_path(@adaptive_test), :html => { :class => :form } do |f| -%>
+      <%= form_for @all_test, :url => all_tests_path(@all_test), :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
       <% end -%>
     </div>

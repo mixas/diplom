@@ -5,8 +5,8 @@
       <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_all_test_path %></li>
       <li class="active"><%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_all_test_path %></li>
     </ul>
-  </div>          
-  <div class="content">            
+  </div>
+  <div class="content">
     <h2 class="title"><%= t("web-app-theme.edit", :default => "Edit") %> AllTest</h2>
     <div class="inner">
       <%= form_for @all_test, :url => all_test_path(@all_test), :html => { :class => :form } do |f| -%>

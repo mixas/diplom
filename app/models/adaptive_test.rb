@@ -1,3 +1,2 @@
 class AdaptiveTest < AllTest
-
 end
